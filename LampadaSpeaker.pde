@@ -1,5 +1,17 @@
 class LampadaSpeaker extends Lampada {
   
+  private Speaker speaker;
+  
+  // Composizione
+  public LampadaSpeaker(PApplet app) {
+    this.speaker = new Speaker(app);
+  }
+  
+  // Aggregazione
+  public LampadaSpeaker(Speaker speaker) {
+    this.speaker = speaker;
+  }
+  
   @Override public void update() {
     noStroke();
     if (this.getIsAcceso()) {
@@ -10,9 +22,19 @@ class LampadaSpeaker extends Lampada {
       fill(0,12,123);
     }
     circle(this.getCoordX(),this.getCoordY(),120);
-     
-    // Speaker acceso
-    fill(117,250,141);
+    
+    if (this.speaker.isAcceso) {
+      fill(0, 255, 0);
+      if (this.speaker.isPaused) {
+        fill(39,89,50);
+      }
+    } else {
+      fill(117,250,141);
+    }
     circle(this.getCoordX(),this.getCoordY(),70);
+
+    Sound.volume(this.speaker.volume/100.0f);
+    
+    
   }
 }
