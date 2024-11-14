@@ -13,7 +13,7 @@ void setup() {
   frameRate(30);
   lampada.accendi();
   lampSpeak.setCoordXY(300,100);
-  lampSpeak.accendi();
+  //lampSpeak.accendi();
   
   if (pmouseX != mouseX) {
     lampada.setLuminosita(mouseX*100/400);
@@ -51,5 +51,11 @@ void keyPressed() {
     speaker.aumentaVolume();
   } else if (key == 'm') {
     speaker.diminuisciVolume();
+  } else if (key == 'l') {
+    if (lampSpeak.getIsAcceso()) {
+      lampSpeak.spegni();
+    } else {
+      lampSpeak.accendi();
+    }
   }
 }

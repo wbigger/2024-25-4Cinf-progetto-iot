@@ -11,6 +11,10 @@ class Lampada {
     this.coordY = 200;
   }
   
+  public boolean getIsAcceso() {
+    return this.isAcceso;
+  }
+  
   public void setCoordXY(int x, int y) {
     this.coordX = x;
     this.coordY = y;

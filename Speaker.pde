@@ -60,6 +60,7 @@ class Speaker {
       fill(0, 0, 0);
     }
     rect(200, 280, 150, 100);
+ 
     Sound.volume(this.volume/100.0f);
   }
 }
